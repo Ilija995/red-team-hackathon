@@ -8,6 +8,6 @@
 	android:fitsSystemWindows="true"
 	tools:context="eu.execom.hackaton.beacon.activity.Main2Activity">
 
-	<include layout="@layout/content_main"/>
+	<include layout="@layout/content_start"/>
 
 </android.support.design.widget.CoordinatorLayout>

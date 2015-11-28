@@ -1,6 +1,6 @@
 package eu.execom.hackaton.beacon.model;
 
-public class Location {
+public class Location implements Comparable<Location> {
 
     private static final int SIGNAL_STRENGTH_STRONG = -60;
     private static final int SIGNAL_STRENGTH_WEAK = -120;
@@ -44,13 +44,6 @@ public class Location {
 	}
 
 	public String printSignalStrength() {
-//        final int signalStrength = (int) getProgressValue() / 20;
-//        final StringBuilder stringBuilder = new StringBuilder();
-//        for (int i = 0; i < signalStrength; i++) {
-//            stringBuilder.append(PROGRESS_CHARACTER);
-//        }
-//        return stringBuilder.toString();
-
 	    return roundOnTwoDigits(getProgressValue()) + "%, " + signalStrength + "db";
     }
 
@@ -70,5 +63,10 @@ public class Location {
     public int hashCode() {
         return uuid != null ? uuid.hashCode() : 0;
     }
+
+	@Override
+	public int compareTo(Location that) {
+		return that.uuid.compareTo(that.uuid);
+	}
 
 }

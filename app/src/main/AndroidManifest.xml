@@ -1,42 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="eu.execom.hackaton.beacon" >
+<manifest package="eu.execom.hackaton.beacon"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.BATTERY_STATS" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.BLUETOOTH"/>
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.WAKE_LOCK"/>
+	<uses-permission android:name="android.permission.BATTERY_STATS"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
-    <uses-feature
-        android:name="android.hardware.bluetooth_le"
-        android:required="false" />
+	<uses-feature
+		android:name="android.hardware.bluetooth_le"
+		android:required="false"/>
 
-    <application
-        android:name=".BeaconApplication_"
-        android:allowBackup="true"
-        android:fullBackupContent="false"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme.NoActionBar" >
-        <activity
-            android:name=".activity.MainActivity_"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+	<application
+		android:name=".BeaconApplication_"
+		android:allowBackup="true"
+		android:fullBackupContent="false"
+		android:icon="@drawable/logo"
+		android:label="@string/app_name"
+		android:theme="@style/AppTheme.NoActionBar">
+		<activity
+			android:name=".activity.MainActivity_"
+			android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+			</intent-filter>
+		</activity>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+		<service
+			android:name=".service.BeaconDiscoveryService_"
+			android:exported="false"/>
 
-        <service
-            android:name=".service.BeaconDiscoveryService_"
-            android:exported="false" />
-    </application>
+		<activity
+			android:name=".activity.StartActivity"
+			android:label="@string/title_activity_start"
+			android:theme="@style/AppTheme.NoActionBar">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+		<activity
+			android:name=".activity.SolvedActivity_"
+			android:label="@string/title_activity_solved"
+			android:theme="@style/AppTheme.NoActionBar">
+		</activity>
+		<activity
+			android:name=".activity.GameFinishedActivity_"
+			android:label="@string/title_activity_game_finished"
+			android:theme="@style/AppTheme.NoActionBar">
+		</activity>
+		<activity
+			android:name=".activity.HighScoresActivity"
+			android:label="@string/title_activity_high_scores"
+			android:theme="@style/AppTheme.NoActionBar">
+		</activity>
+	</application>
 
 </manifest>

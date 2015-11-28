@@ -6,8 +6,8 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:fitsSystemWindows="true"
-	tools:context="eu.execom.hackaton.beacon.activity.Main2Activity">
+	tools:context="eu.execom.hackaton.beacon.activity.GameFinishedActivity">
 
-	<include layout="@layout/content_main"/>
+	<include layout="@layout/content_game_finished"/>
 
 </android.support.design.widget.CoordinatorLayout>
