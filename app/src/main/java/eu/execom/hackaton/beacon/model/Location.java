@@ -32,14 +32,18 @@ public class Location {
         if (signalStrength >= SIGNAL_STRENGTH_STRONG) {
             return 100;
         } else if (signalStrength <= SIGNAL_STRENGTH_WEAK) {
-            return 10;
+            return 0;
         } else {
             final double percentage = (SIGNAL_STRENGTH_STRONG - signalStrength) / (double) RANGE;
             return (1 - percentage) * 100;
         }
     }
 
-    public String getSignalStrength() {
+	private double roundOnTwoDigits(double val) {
+		return (int) (val * 100.0) / 100.0;
+	}
+
+	public String printSignalStrength() {
 //        final int signalStrength = (int) getProgressValue() / 20;
 //        final StringBuilder stringBuilder = new StringBuilder();
 //        for (int i = 0; i < signalStrength; i++) {
@@ -47,7 +51,7 @@ public class Location {
 //        }
 //        return stringBuilder.toString();
 
-	    return (int)(getProgressValue() * 100.0) / 100.0 + "%";
+	    return roundOnTwoDigits(getProgressValue()) + "%, " + signalStrength + "db";
     }
 
     @Override

@@ -74,7 +74,7 @@ public class LocationListAdapter extends BaseAdapter {
 
         public void bind(Location location) {
             uuid.setText(location.uuid);
-            signalStrength.setText(location.getSignalStrength());
+            signalStrength.setText(location.printSignalStrength());
         }
 
     }
